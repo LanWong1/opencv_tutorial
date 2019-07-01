@@ -6,12 +6,20 @@ from matplotlib import pyplot as plt
 # 直线检测很给力 比轮廓检测更好 更简单方便 可用于银行卡切边
 def lsd_Detct(img):
     gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    print(gray)
+    gray_mean = np.mean(gray)
+    _,thresh= cv.threshold(gray,gray_mean-50,255,cv.THRESH_BINARY_INV)
+    #print(thresh)
+
+
+
+
     detector = cv.createLineSegmentDetector(0)
-    lines,width,prec,nfa=detector.detect(gray)
+    lines,width,prec,nfa=detector.detect(thresh)
     line_lens = []
     for line in lines[:,0]:
         x1,y1,x2,y2 = line
-        #print(x1,y1,x2,y2)
+
         a = pow((y2-y1),2) + pow((x2-x1),2)
         line_len = pow(a,0.5)
         line_lens.append(line_len)
@@ -21,8 +29,9 @@ def lsd_Detct(img):
     lin_len_top4 = line_lens[-4:]
     for item in lin_len_top4:
         index.append(line_lenths.index(item))
-    print('index = ',index)
-    detector.drawSegments(img,lines[index])
+
+
+    detector.drawSegments(img,lines)
     points = []
     point_x = []
     #detector.drawSegments(img, lines[2])
@@ -47,6 +56,8 @@ def lsd_Detct(img):
     index_min_x2 = point_x_unsort.index(point_x[1])
     index_min_x3 = point_x_unsort.index(point_x[2])
     index_min_x4 = point_x_unsort.index(point_x[3])
+
+    src_points = []
     if points[index_min_x1][1] < points[index_min_x2][1]:
         point_left_top = points[index_min_x1]
         point_left_bottom = points[index_min_x2]
@@ -61,16 +72,26 @@ def lsd_Detct(img):
         point_right_top = points[index_min_x4]
         point_right_bottom = points[index_min_x3]
     #for point in points:
-    cv.circle(img, (pt1_x, pt1_y), 5, (0, 0, 255))
-    cv.circle(img, (pt2_x, pt2_y), 5, (0, 0, 255))
-    cv.circle(img, (pt3_x, pt3_y), 5, (0, 0, 255))
-    cv.circle(img, (pt4_x, pt4_y), 5, (0, 0, 255))
+    cv.circle(img, point_left_top, 5, (0, 0, 255))
+    cv.circle(img, point_left_bottom, 5, (0, 255, 0))
+    cv.circle(img, point_right_top, 5, (255, 0, 0))
+    cv.circle(img, point_right_bottom, 5, (255, 255, 255))
 
-
+    src_points.append(point_left_top)
+    src_points.append(point_right_top)
+    src_points.append(point_right_bottom)
+    src_points.append(point_left_bottom)
+    for item in src_points:
+        list(item)
+    src = np.float32([point_left_top, point_right_top,point_right_bottom,point_left_bottom])
+    dst_points = np.float32([[0,0],[300,0],[300,190],[0,190]])
+    M = cv.getPerspectiveTransform(src,dst_points)
+    dst = cv.warpPerspective(img,M,(300,190))
     cv.rectangle(img,point_left_bottom,point_right_top,(0,255,0))
     #img = img[int(pt1_y):int(pt2_y),int(pt3_x):int(pt1_x),:]
+    cv.imshow('dst',dst)
     cv.imshow('lines',img)
-
+    cv.imshow('thesh',thresh)
 
 def crossPoint(line1,line2):
     X1 = line1[2] - line1[0]
@@ -104,10 +125,12 @@ def abstructCard(img):
 
    img1 =  img
    gray = cv.cvtColor(img, cv.COLOR_RGB2GRAY)
-   #cv.imshow('imge', img)
+   gray_mean = np.mean(gray)
+   _, thresh = cv.threshold(gray, gray_mean - 50, 255, cv.THRESH_BINARY_INV)
+
    #cv.imshow('gray',gray)
-   canny = cv.Canny(gray,100,150)
-   #cv.imshow('canny',canny)
+   canny = cv.Canny(thresh,100,150)
+   cv.imshow('canny',canny)
    #cv.namedWindow('canny', cv.WINDOW_NORMAL)
    image, coutous, hierarchy= cv.findContours(canny, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
    coutous_Area = []
@@ -138,14 +161,14 @@ def abstructCard(img):
    result = img1[y1:y1+h1,x1:x1+w1,:]
 
    cv.imshow("card",result)
-   #cv.imshow('img',img)
+   cv.imshow('img',img)
 
 
 if __name__ == "__main__":
 
-    img = cv.imread('6.jpg')
+    img = cv.imread('17.jpg')
     blur = cv.bilateralFilter(img, 9, 75, 75)
-    #abstructCard(blur)
-    lsd_Detct(blur)
+    abstructCard(blur)
+    #lsd_Detct(blur)
     k = cv.waitKey(0)
 
