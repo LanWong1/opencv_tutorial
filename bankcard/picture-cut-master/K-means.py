@@ -15,7 +15,7 @@ def loadData(filePath):
     f.close()
     return np.mat(data), m, n
 
-imgData, row, col  = loadData("E:/OP/wl.jpg")
+imgData, row, col  = loadData("17.jpg")
 km = KMeans(n_clusters=3)
 label = km.fit_predict(imgData)
 label = label.reshape([row, col]) #细节

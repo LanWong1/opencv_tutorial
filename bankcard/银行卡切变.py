@@ -8,12 +8,7 @@ def lsd_Detct(img):
     gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     print(gray)
     gray_mean = np.mean(gray)
-    _,thresh= cv.threshold(gray,gray_mean-50,255,cv.THRESH_BINARY_INV)
-    #print(thresh)
-
-
-
-
+    _,thresh= cv.threshold(gray,gray_mean-30,255,cv.THRESH_BINARY_INV)
     detector = cv.createLineSegmentDetector(0)
     lines,width,prec,nfa=detector.detect(thresh)
     line_lens = []
@@ -26,12 +21,13 @@ def lsd_Detct(img):
     line_lenths = line_lens.copy()
     line_lens.sort()
     index = []
+
     lin_len_top4 = line_lens[-4:]
     for item in lin_len_top4:
         index.append(line_lenths.index(item))
 
 
-    detector.drawSegments(img,lines)
+    detector.drawSegments(img,lines[index])
     points = []
     point_x = []
     #detector.drawSegments(img, lines[2])
@@ -88,10 +84,13 @@ def lsd_Detct(img):
     M = cv.getPerspectiveTransform(src,dst_points)
     dst = cv.warpPerspective(img,M,(300,190))
     cv.rectangle(img,point_left_bottom,point_right_top,(0,255,0))
+
     #img = img[int(pt1_y):int(pt2_y),int(pt3_x):int(pt1_x),:]
+
     cv.imshow('dst',dst)
     cv.imshow('lines',img)
     cv.imshow('thesh',thresh)
+    cv.imshow('gray',gray)
 
 def crossPoint(line1,line2):
     X1 = line1[2] - line1[0]
@@ -122,20 +121,21 @@ def grey_scale(image):
 
 
 def abstructCard(img):
-
-   img1 =  img
-   gray = cv.cvtColor(img, cv.COLOR_RGB2GRAY)
+   gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+   print(gray)
    gray_mean = np.mean(gray)
-   _, thresh = cv.threshold(gray, gray_mean - 50, 255, cv.THRESH_BINARY_INV)
-
+   _, thresh = cv.threshold(gray, gray_mean-10, 255, cv.THRESH_BINARY_INV)
+   img1 =  img.copy()
    #cv.imshow('gray',gray)
+   #cv.imshow('thresh', thresh)
+   cv.imshow('th3',thresh)
    canny = cv.Canny(thresh,100,150)
-   cv.imshow('canny',canny)
-   #cv.namedWindow('canny', cv.WINDOW_NORMAL)
-   image, coutous, hierarchy= cv.findContours(canny, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
+   #cv.imshow('canny',canny)
+   image, coutous, hierarchy= cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+   cv.drawContours(img,coutous,-1,(0,0,255),5)
    coutous_Area = []
    for item in coutous:
-       print(item.shape)
+       #print('item shaoe = ',item.shape)
        coutous_Area.append(cv.contourArea(item))
    index = coutous_Area.index(max(coutous_Area))
    rec_area = 0
@@ -144,10 +144,10 @@ def abstructCard(img):
    w1 = 0
    h1 = 0
    for i,item in enumerate(coutous_Area):
-       if(item >50):
+       if(item >200):
            epsilon = 0.1 * cv.arcLength(coutous[i], True)
            approx = cv.approxPolyDP(coutous[i], epsilon, True)
-           #cv.drawContours(img, coutous, i, (0, 255, 0), 3)
+           cv.drawContours(img, coutous, i, (0, 255, 0), 3)
            x, y, w, h = cv.boundingRect(coutous[i])
            area = w*h
            if(rec_area < area):
@@ -157,16 +157,19 @@ def abstructCard(img):
                w1 = w
                h1 = h
    rec = cv.rectangle(img, (x1, y1), (x1 + w1, y1 + h1), (0, 255, 0), 2)
-   cv.imshow('rectangle',rec)
+   #cv.imshow('rectangle',rec)
    result = img1[y1:y1+h1,x1:x1+w1,:]
 
    cv.imshow("card",result)
    cv.imshow('img',img)
 
 
+def floodFill(img):
+    cv.floodFill(img)
+
 if __name__ == "__main__":
 
-    img = cv.imread('17.jpg')
+    img = cv.imread('27.jpg')
     blur = cv.bilateralFilter(img, 9, 75, 75)
     abstructCard(blur)
     #lsd_Detct(blur)

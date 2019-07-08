@@ -9,7 +9,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 # 以灰色导入图像
-img = cv2.imread('card.jpg', 0)  # 读取图片 以灰度
+img = cv2.imread('17.jpg', 0)  # 读取图片 以灰度
 print(img.shape)
 # plt.subplot(221), plt.imshow(img, 'gray'), plt.title('original')
 # plt.xticks([]), plt.yticks([])

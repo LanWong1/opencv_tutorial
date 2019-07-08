@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 from genetic import genetic
 
-filename = 'images/card.jpg'
+filename = 'images/17.jpg'
 
 def threshold(t, image):
     image_tmp = np.asarray(image)
@@ -16,7 +16,7 @@ def main():
     im = Image.open(filename)
     im.load()
     im.show()
-    im_gray = im.convert('L') # translate to  gray map
+    im_gray = im.convert('L') #translate to  gray map
     genrtic = genetic(im_gray)
     best_threshold = genrtic.get_threshold()
     threshold(best_threshold, im_gray)
