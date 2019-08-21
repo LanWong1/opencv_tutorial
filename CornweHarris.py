@@ -1,7 +1,7 @@
 import cv2 as cv
 from matplotlib import pyplot as plt
 import numpy as np
-img = cv.imread('lena.png')
+img = cv.imread('.png')
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 cv.namedWindow('lena',cv.WINDOW_AUTOSIZE)
 cv.imshow('lena',gray)
