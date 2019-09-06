@@ -20,7 +20,9 @@ def rotate_N_90(img_orign,n):
 
 def vertical(img):
     w = int(img.shape[1])
-    img_half = img[:,:int(0.5*w),:]
+    h = int(img.shape[0])
+    print('h===',h)
+    img_half = img[:,:int(0.4*w),:]
     img1 = cv.GaussianBlur(img,(5,5),0)
     img_gray = cv.cvtColor(img1,cv.COLOR_BGR2GRAY)
     img_cany = cv.Canny(img_gray,80,150)
@@ -36,7 +38,13 @@ def vertical(img):
 
     cout = np.arange(0,h)
     black_cout = np.array(thresh_count)
-    #black_cout_mean = np.mean(black_cout)
+    black_cout_mean = np.mean(black_cout)
+    print('block_mean===',black_cout_mean)
+
+
+
+
+
     inx = []
     for index, black_cnt in enumerate(black_cout):
         if black_cnt > 10:
@@ -47,16 +55,16 @@ def vertical(img):
     for i in range(0,len(inx)-1):
         if inx[i+1] - inx[i]>5:
             end = i
-            if end - befor > 10:
+            if end - befor > 10 and  end - befor < 40:
                 cut_range.append([inx[befor], inx[end]])
             befor = i+1
         if i == len(inx) - 2:
             end = i+1
-            if end - befor > 10:
+            if end - befor > 15 and  end - befor < 40:
                 cut_range.append([inx[befor], inx[end]])
     print("cut range==========",cut_range)
-    if len(cut_range) < 4 :
-        cut_range = []
+    # if len(cut_range) < 4 :
+    #     cut_range = []
     i=0
     black_cout_mean = []
     for rng in cut_range:
@@ -77,9 +85,27 @@ def vertical(img):
     # cv.imshow('thresh',img_th)
     # cv.waitKey(0)
 
+
+
+def remove_highlit(img):
+    img_mean = np.mean(img)
+
+
+
+
+
 if __name__ == '__main__':
-    img = cv.imread('2.jpg')
-    vertical(img)
+    img = cv.imread('10.png')
+    mean = np.mean(img)
+
+    img_mean = cv.mean(img)
+    print(img_mean)
+    cv.imshow('gray', img_mean)
+
+    cv.waitKey(0)
+    #vertical(img)
+
+
     #img2 = rotate_N_90(img,2)
     # cv.imshow('origin', img)
     # cv.imshow('rotate', img2)

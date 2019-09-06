@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="663edfb4-5b52-471b-83d3-e88bdf94e2cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ID_Card_for_test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/水平投影.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/身份证检测测试/水平投影.py" beforeDir="false" afterPath="$PROJECT_DIR$/身份证检测测试/水平投影.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/身份证检测测试/水平投影.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state relative-caret-position="831">
+              <caret line="100" column="27" lean-forward="true" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="27" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -28,7 +25,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/身份证检测测试/2.jpg">
+        <entry file="file://$PROJECT_DIR$/身份证检测测试/fan_d.jpg">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
@@ -43,6 +40,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/身份证检测测试/2.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/身份证检测测试/10.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/身份证检测测试/hilight.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/身份证检测测试/fan.jpg">
           <provider selected="true" editor-type-id="images" />
         </entry>
@@ -53,22 +65,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/身份证检测测试/1.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/身份证检测测试/test.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/身份证检测测试/10.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/身份证检测测试/5_resize.jpg">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
@@ -130,7 +127,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="64" />
     <option name="y" value="100" />
     <option name="width" value="1440" />
@@ -170,6 +167,16 @@
             <path>
               <item name="opencv_tutorial" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Documents/Study/Tensorflow/python深度学习/opencv_tutorial" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="opencv_tutorial" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Study/Tensorflow/python深度学习/opencv_tutorial" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="IDCard" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opencv_tutorial" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Study/Tensorflow/python深度学习/opencv_tutorial" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="身份证检测测试" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -677,22 +684,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
+    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15557306" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15557306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32928064" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.77668375" visible="true" weight="0.3979213" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49552396" weight="0.39617833" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.775896" visible="true" weight="0.21232368" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.84403306" weight="0.39569414" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3283767" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.22331627" side_tool="true" visible="true" weight="0.3979213" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.22410397" side_tool="true" visible="true" weight="0.21232368" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4997367" weight="0.3015544" />
       <window_info anchor="bottom" id="DB Execution Console" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -717,16 +724,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bankcard/14.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bankcard/15.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bankcard/16.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bankcard/26.jpg" />
     <entry file="file://$PROJECT_DIR$/bankcard/银行卡切变.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
@@ -905,9 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/身份证检测测试/fan_d.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/身份证检测测试/txt.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -917,13 +911,25 @@
     <entry file="file://$PROJECT_DIR$/身份证检测测试/test.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/身份证检测测试/5_resize.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/身份证检测测试/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDCard/sfz1.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDCard/info.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/身份证检测测试/fan_d.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/身份证检测测试/fan.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/身份证检测测试/10.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/身份证检测测试/5_resize.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/身份证检测测试/5.jpg">
@@ -935,16 +941,19 @@
     <entry file="file://$PROJECT_DIR$/身份证检测测试/3.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/身份证检测测试/1.jpg">
+    <entry file="file://$PROJECT_DIR$/身份证检测测试/2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/身份证检测测试/2.jpg">
+    <entry file="file://$PROJECT_DIR$/身份证检测测试/hilight.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/身份证检测测试/10.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/身份证检测测试/水平投影.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="831">
+          <caret line="100" column="27" lean-forward="true" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="27" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
