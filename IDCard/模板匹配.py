@@ -13,4 +13,4 @@ bottom_right = (top_left[0] + w, top_left[1] + h)
 cv2.rectangle(img,top_left, bottom_right, 255, 2)
 
 cv2.imshow('res',img)
-cv2.waitKey(0)
+cv2.waitKey(0) 
